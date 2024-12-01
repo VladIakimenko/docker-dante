@@ -1,10 +1,13 @@
-dante:
+services:
+
+  dante:
     image: adegtyarev/dante
+    container_name: dante
     command: sockd-username
-    environment:
-        SOCKD_USER_NAME: $SOCKD_USER_NAME
-        SOCKD_USER_PASSWORD: $SOCKD_USER_PASSWORD
+    env_file:
+      - .env
     ports:
-        - $SOCKD_PORT:1080
+      - "1080:1080"
     volumes:
-        - ./sockd.conf:/etc/sockd.conf
+      - ./sockd.conf:/etc/sockd.conf
+
