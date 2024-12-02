@@ -1,7 +1,9 @@
 services:
 
   dante:
-    image: adegtyarev/dante
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: dante
     command: sockd-username
     env_file:
